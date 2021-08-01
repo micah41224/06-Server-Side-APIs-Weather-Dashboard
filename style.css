@@ -22,17 +22,49 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     border-style: solid;
     border-radius: 25px;
     border-width: 5px;
+    height: 400px;
 
 }
 
 #cityDiv {
     border-style: solid;
     border-radius: 25px;
-    border: black 5px;
+    border-width: 5px;
+    width:100%;
+    
 }
 
-#FDFDIV {
+#FDFDiv {
     border-style: solid;
     border-radius: 25px;
-    border: black 5px;
+    border-width: 5px;
+    width:100%;
+}
+
+h2 {
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+#container {
+    height: 500px;
+    padding-left: 30px;
+    padding-top: 20px;
+    width: 75%;
+}
+
+.float-left {
+    float: left;
+    margin-right: 50px;
+}
+
+.float-right {
+    float: right;
+
+}
+
+#rightContainer {
+    display:flex;
+    flex-wrap: wrap;
+    gap: 12px;
 }
