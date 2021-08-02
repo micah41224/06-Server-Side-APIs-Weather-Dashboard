@@ -19,25 +19,26 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 #searchDiv {
-    border-style: solid;
+   /* border-style: solid;
     border-radius: 25px;
-    border-width: 5px;
-    height: 400px;
+    border-width: 5px; */
+    height: 600px;
+    width: 20%;
 
 }
 
 #cityDiv {
     border-style: solid;
-    border-radius: 25px;
-    border-width: 5px;
+   /* border-radius: 25px; */
+    border-width: 1px;
     width:100%;
     
 }
 
 #FDFDiv {
     border-style: solid;
-    border-radius: 25px;
-    border-width: 5px;
+   /* border-radius: 25px; */
+    border-width: 1px;
     width:100%;
 }
 
@@ -50,7 +51,7 @@ h2 {
     height: 500px;
     padding-left: 30px;
     padding-top: 20px;
-    width: 75%;
+    width: 90%;
 }
 
 .float-left {
@@ -67,4 +68,31 @@ h2 {
     display:flex;
     flex-wrap: wrap;
     gap: 12px;
+    width: 70%;
+}
+
+#searchDivH2 {
+    padding-bottom: 10px;
+}
+
+#yourCity {
+    width: 100%;
+    height: 50px;
+    
+}
+
+#search-btn {
+    width: 100%;
+    height: 50px;
+    color: white;
+    background-color: rgb(55, 55, 209);
+    margin-top: 20px;
+    border-radius: 12px;
+}
+
+#history {
+    margin-top: 20px;
+    border-top: 3px;
+    border-style: solid;
+
 }
