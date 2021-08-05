@@ -7,6 +7,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     vertical-align: baseline;
 }
 
+ol {
+    list-style: none;
+}
+
 #banner {
     background-image: linear-gradient(to right,rgb(47, 47, 187), rgb(82, 24, 136));
     width:100%;
@@ -32,6 +36,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
    /* border-radius: 25px; */
     border-width: 1px;
     width:100%;
+    padding:20px;
     
 }
 

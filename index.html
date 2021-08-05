@@ -16,13 +16,20 @@
     <div id=container>  
     <div id=searchDiv class=float-left>
         <h2 id=searchDivH2>Search for a City:</h2>
-        <input id="yourCity" type="text" placeholder="Enter city name">
+        <input id="enter-city" type="text" placeholder="Enter city name">
         <button type="button" id="search-btn">Search</button>
         <form id="history"></form>
     </div>
 <div id=rightContainer>
     <div id=cityDiv class="row">
-        <p id="cityDateDisplay"></p>
+
+        <ol>
+            <li id="temperature">Temp: </li>
+            <li id="humidity">Humidity: </li>
+            <li id="wind-speed">Wind-speed:</li>
+            <li id="UV-index">UV-index:</li>
+        </ol>
+       <p id="cityDateDisplay"></p>
     </div>
     <div>
         <h2>5 Day Forecast:</h2>
@@ -37,9 +44,10 @@
         <div class="col-md-2 forecast bg-primary text-white m-2 rounded">Daily5</div>
 
         </div>
-
+       
     </div>
   </div>
+  
 </div>  
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./script.js"></script>
