@@ -1,11 +1,30 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 function loadAll() {
     
     const APIKey = "e441c40d7c8015427300822498b53fc2";
 
+    console.log(APIKey);
 
     var cityDateDisplay = "";
-    var cityName = "atlanta"
+    const cityName = "atlanta"
     
     var nameList = document.getElementById("city-name");
     var currentPicList = document.getElementById("current-pic");
@@ -23,12 +42,27 @@ function loadAll() {
 
 
 function getWeather(cityName) {
+    console.log(cityName);
     let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIKey;
         axios.get(queryURL)
-            
-getWeather();
-console.log(getWeather);
-
-    }
+    
+       })  
+     //  getWeather();
+    } 
+    getWeather();
 }
-loadAll();
+//getWeather();
+//console.log(getWeather);
+
+  //  }
+//}
+
+
+
+
+document.querySelector('#search-btn').addEventListener('click', loadAll);
+
+
+//loadAll();
+
+*/
