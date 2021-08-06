@@ -1,4 +1,24 @@
+var button = document.querySelector('.button');
+var inputValue = document.querySelector('.inputValue');
+var nameSlot = document.querySelector('.cityName');
+var wind = document.querySelector('.wind');
+var temp = document.querySelector('.temp');
 
+button.addEventListener('click',function(){
+    fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&appid=e441c40d7c8015427300822498b53fc2')
+    .then(response => response.json())
+    .then(data => {
+        var nameValue = data['name'];
+        var tempValue = data['main']['temp'];
+        var windValue = data['wind']['speed'];
+        var tempConverted =  ((tempValue - 273.15) * 1.8 + 32);
+        var tempRounded = Math.round(tempConverted);
+
+        nameSlot.innerHTML ="City: "+nameValue;
+        temp.innerHTML = "Temp: "+tempRounded+"°";
+        wind.innerHTML = "Wind Speed: "+windValue+" MPH"
+    })
+})
 
 
 
