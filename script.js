@@ -1,4 +1,4 @@
-var button = document.querySelector('.button');
+var button = document.querySelector('#button');
 var inputValue = document.querySelector('.inputValue');
 var nameSlot = document.querySelector('.cityName');
 var temp = document.querySelector('.temp');
