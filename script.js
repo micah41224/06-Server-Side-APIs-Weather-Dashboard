@@ -5,6 +5,7 @@ var temp = document.querySelector('.temp');
 var humidity = document.querySelector('.humidity');
 var wind = document.querySelector('.wind');
 var pic = document.querySelector('#placeholder-pic')
+var uv = document.querySelector('.UV-index');
 
 
 button.addEventListener('click',function(){
@@ -19,7 +20,7 @@ button.addEventListener('click',function(){
         var year = currentDate.getFullYear();
         var tempValue = data['main']['temp'];
         var humidityValue = data.main.humidity;
-        console.log(humidityValue);
+        //console.log(humidityValue);
         var windValue = data['wind']['speed'];
         var tempConverted =  ((tempValue - 273.15) * 1.8 + 32);
         var tempRounded = Math.round(tempConverted);
@@ -30,15 +31,44 @@ button.addEventListener('click',function(){
         nameSlot.innerHTML ="City: "+nameValue+" (" + month + "/" + day + "/" + year + ") ";
         temp.innerHTML = "Temp: "+tempRounded+"°";
         humidity.innerHTML = "Humidity: "+humidityValue+"%";
-        wind.innerHTML = "Wind Speed: "+windValue+" MPH"
+        wind.innerHTML = "Wind Speed: "+windValue+" MPH";
+
+        let lat = data.coord.lat;
+        let lon = data.coord.lon;
+
+        console.log(lat);
+        console.log(lon);
+
+        fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,daily&appid=e441c40d7c8015427300822498b53fc2")
+        .then(response => response.json())
+        .then(data => {
+        
+        //var uvValue = data[0].value;
+        var uvValue = data.current.uvi;
+        uv.innerHTML = "UV Index: "+uvValue;
+        console.log(data);
+        })
     })
 })
 
 
 
+/*
 
+function timeColorShift() {
+    if (military[i] < presentTime) {
+      inputForm.addClass("past");
+  }
+      else if(military[i] > presentTime) {
+          inputForm.addClass("future");
+      }
+      else if(military[i] = presentTime) {
+          inputForm.addClass("present");
+      }
 
+  }
 
+  */
 
 
 
