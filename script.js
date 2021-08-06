@@ -64,6 +64,27 @@ button.addEventListener('click',function(){
 
        uviColorShift();
 
+  var inputHistory = document.querySelector(".inputValue").value;
+
+
+    var cityLog = JSON.parse(window.localStorage.getItem("cityLog")) || [];
+    var newEntry = {
+      inputHistory: inputHistory
+    };
+  
+
+    cityLog.push(newEntry);
+    window.localStorage.setItem("cityLog", JSON.stringify(cityLog));
+    console.log(cityLog);
+
+    cityLog.forEach(function(score) {
+        var liTag = document.createElement("li");
+        liTag.textContent = inputHistory;
+    
+        var olEl = document.getElementById("cityList");
+        olEl.appendChild(liTag);
+      });
+
         })
     })
 })
