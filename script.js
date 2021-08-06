@@ -45,31 +45,64 @@ button.addEventListener('click',function(){
         
         //var uvValue = data[0].value;
         var uvValue = data.current.uvi;
-        uv.innerHTML = "UV Index: "+uvValue;
+        uv.innerHTML = uvValue;
         console.log(data);
+
+        function uviColorShift(){
+            //function uviColorShift() {
+                if (data.current.uvi < 4) {
+                  uv.classList.add("low");
+              }
+                  else if(data.current.uvi < 8) {
+                      uv.classList.add("medium");
+                  }
+                  else {
+                      uv.classList.add("high");
+                  }
+            
+              };
+
+       uviColorShift();
+
         })
     })
 })
 
+/*
+function uviColorShift(){
+    //function uviColorShift() {
+        if (uv.value < 4) {
+          uv.classList.add("low");
+      }
+          else if(uv.value < 8) {
+              uv.classList.add("medium");
+          }
+          else {
+              uv.classList.add("high");
+          }
+    
+      };
+      */
 
 
 /*
 
-function timeColorShift() {
-    if (military[i] < presentTime) {
-      inputForm.addClass("past");
+button.addEventListener('click',function(){
+//function uviColorShift() {
+    if (uvValue < 4) {
+      uv.addClass("low");
   }
-      else if(military[i] > presentTime) {
-          inputForm.addClass("future");
+      else if(uvValue < 8) {
+          uv.addClass("medium");
       }
-      else if(military[i] = presentTime) {
-          inputForm.addClass("present");
+      else {
+          uv.addClass("high");
       }
 
-  }
+  });
 
-  */
-
+  
+*/
 
 
 

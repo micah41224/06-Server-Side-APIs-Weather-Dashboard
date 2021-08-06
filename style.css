@@ -108,3 +108,27 @@ h2 {
     font-size: 23px;
     padding-left: 10px;
 }
+
+.low{
+    background-color: rgb(23, 211, 64);
+}
+
+.medium {
+    background-color: yellow;
+}
+
+.high {
+    background-color: red;
+}
+
+.UV-index {
+    width: 60px;
+    text-align: center;
+    border-radius: 12px;
+    float:right;
+}
+
+
+.UV-index1 {
+    width:85%;
+}
