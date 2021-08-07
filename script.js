@@ -6,13 +6,15 @@ var humidity = document.querySelector('.humidity');
 var wind = document.querySelector('.wind');
 var pic = document.querySelector('#placeholder-pic')
 var uv = document.querySelector('.UV-index');
+var olEl = document.getElementById("cityList");
 
 
-button.addEventListener('click',function(){
-    fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&appid=e441c40d7c8015427300822498b53fc2')
+//button.addEventListener('click',function(){
+    //Below function was recently added
+function getWeather(value, callee) {
+    fetch('https://api.openweathermap.org/data/2.5/weather?q='+value+'&appid=e441c40d7c8015427300822498b53fc2')
     .then(response => response.json())
     .then(data => {
-        //console.log(data);
         var nameValue = data['name'];
         var currentDate = new Date();
         var day = currentDate.getDate();
@@ -20,7 +22,6 @@ button.addEventListener('click',function(){
         var year = currentDate.getFullYear();
         var tempValue = data['main']['temp'];
         var humidityValue = data.main.humidity;
-        //console.log(humidityValue);
         var windValue = data['wind']['speed'];
         var tempConverted =  ((tempValue - 273.15) * 1.8 + 32);
         var tempRounded = Math.round(tempConverted);
@@ -36,17 +37,16 @@ button.addEventListener('click',function(){
         let lat = data.coord.lat;
         let lon = data.coord.lon;
 
-        console.log(lat);
-        console.log(lon);
+       // console.log(lat);
+        //console.log(lon);
 
         fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,daily&appid=e441c40d7c8015427300822498b53fc2")
         .then(response => response.json())
         .then(data => {
         
-        //var uvValue = data[0].value;
         var uvValue = data.current.uvi;
         uv.innerHTML = uvValue;
-        console.log(data);
+        //console.log(data);
 
         function uviColorShift(){
             //function uviColorShift() {
@@ -64,9 +64,13 @@ button.addEventListener('click',function(){
 
        uviColorShift();
 
+       
+if (callee == "input") {
+
+
   var inputHistory = document.querySelector(".inputValue").value;
 
-
+/*
     var cityLog = JSON.parse(window.localStorage.getItem("cityLog")) || [];
     var newEntry = {
       inputHistory: inputHistory
@@ -74,21 +78,45 @@ button.addEventListener('click',function(){
   
 
     cityLog.push(newEntry);
-    window.localStorage.setItem("cityLog", JSON.stringify(cityLog));
-    console.log(cityLog);
+*/
+var newEntry = {
+    inputHistory: inputHistory
+  };
 
+  var cityLogStorage = window.localStorage.getItem("cityLog") || [];
+  if (window.localStorage.getItem("cityLog") === null) {
+      var cityLog =[];
+  } else {
+      var cityLog = JSON.parse(cityLogStorage)
+  }
+     
+  cityLog.push(newEntry);
+
+    window.localStorage.setItem("cityLog", JSON.stringify(cityLog));
+    olEl.innerHTML="";
+
+    getFromStorage();
+}
+    //getFromStorage();
+    //console.log(cityLog);
+/*
     cityLog.forEach(function(inputHistory) {
         var liTag = document.createElement("li");
+        liTag.setAttribute("type", "text");
+        liTag.addEventListener("click", function () {
+            getWeather(inputHistory.inputHistory);
+        })
         liTag.textContent = inputHistory.inputHistory;
+        console.log(inputHistory.inputHistory);
        
     
         var olEl = document.getElementById("cityList");
         olEl.appendChild(liTag);
       });
-
+*/
         })
     })
-})
+}
 
 
 
@@ -96,8 +124,54 @@ button.addEventListener('click',function(){
 
 
 
+function getFromStorage () {
+    
+    var cityLogStorage = window.localStorage.getItem("cityLog")|| [];
+    console.log(cityLogStorage)
+     if (window.localStorage.getItem("cityLog") === null) {
+      var cityLog=[];
+  } else {
+      var cityLog = JSON.parse(cityLogStorage)
+   
+    cityLog.forEach(function(inputHistory) {
+        var liTag = document.createElement("li");
+        liTag.setAttribute("type", "text");
+        liTag.addEventListener("click", function () {
+            getWeather(inputHistory.inputHistory);
+        })
+        liTag.textContent = inputHistory.inputHistory;
+        console.log(inputHistory.inputHistory);
+       
+    
+        var olEl = document.getElementById("cityList");
+        olEl.appendChild(liTag);
+      });
+    }
+    /*
+      var newEntry = {
+      inputHistory: inputHistory
+    };
+  
 
+    cityLog.push(newEntry);
+*/
+}
+
+function setEventListeners () {
+//Recently changed:
+button.addEventListener('click',function(){
+    var searchTerm = inputValue.value;
+        getWeather(searchTerm, "input");
+        
+ })
+}
+
+function init () {
+setEventListeners();
+getFromStorage();
+}
+
+init ();
 
 //    const APIKey = "e441c40d7c8015427300822498b53fc2";
 
-   
