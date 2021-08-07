@@ -83,14 +83,21 @@ var newEntry = {
     inputHistory: inputHistory
   };
 
-  var cityLogStorage = window.localStorage.getItem("cityLog")|| [];
-    var cityLog = JSON.parse(cityLogStorage) 
+  var cityLogStorage = window.localStorage.getItem("cityLog") || [];
+  if (window.localStorage.getItem("cityLog") === null) {
+      var cityLog =[];
+  } else {
+      var cityLog = JSON.parse(cityLogStorage)
+  }
+     
   cityLog.push(newEntry);
 
     window.localStorage.setItem("cityLog", JSON.stringify(cityLog));
     olEl.innerHTML="";
-}
+
     getFromStorage();
+}
+    //getFromStorage();
     //console.log(cityLog);
 /*
     cityLog.forEach(function(inputHistory) {
@@ -120,7 +127,12 @@ var newEntry = {
 function getFromStorage () {
     
     var cityLogStorage = window.localStorage.getItem("cityLog")|| [];
-    var cityLog = JSON.parse(cityLogStorage) 
+    console.log(cityLogStorage)
+     if (window.localStorage.getItem("cityLog") === null) {
+      var cityLog=[];
+  } else {
+      var cityLog = JSON.parse(cityLogStorage)
+   
     cityLog.forEach(function(inputHistory) {
         var liTag = document.createElement("li");
         liTag.setAttribute("type", "text");
@@ -134,6 +146,7 @@ function getFromStorage () {
         var olEl = document.getElementById("cityList");
         olEl.appendChild(liTag);
       });
+    }
     /*
       var newEntry = {
       inputHistory: inputHistory
