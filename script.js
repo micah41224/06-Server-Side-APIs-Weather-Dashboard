@@ -89,9 +89,8 @@ var newEntry = {
 
     window.localStorage.setItem("cityLog", JSON.stringify(cityLog));
     olEl.innerHTML="";
-getFromStorage();
 }
-    
+    getFromStorage();
     //console.log(cityLog);
 /*
     cityLog.forEach(function(inputHistory) {
