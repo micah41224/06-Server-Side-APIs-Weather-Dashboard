@@ -132,3 +132,17 @@ h2 {
 .UV-index1 {
     width:85%;
 }
+
+ol#cityList {
+    padding-top: 15px;
+    width: 340px;
+}
+
+ol#cityList li {
+    font-size: 25px;
+    background-color: rgb(177, 172, 172);
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

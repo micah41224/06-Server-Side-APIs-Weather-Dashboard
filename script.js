@@ -77,9 +77,10 @@ button.addEventListener('click',function(){
     window.localStorage.setItem("cityLog", JSON.stringify(cityLog));
     console.log(cityLog);
 
-    cityLog.forEach(function(score) {
+    cityLog.forEach(function(inputHistory) {
         var liTag = document.createElement("li");
-        liTag.textContent = inputHistory;
+        liTag.textContent = inputHistory.inputHistory;
+       
     
         var olEl = document.getElementById("cityList");
         olEl.appendChild(liTag);
@@ -89,41 +90,8 @@ button.addEventListener('click',function(){
     })
 })
 
-/*
-function uviColorShift(){
-    //function uviColorShift() {
-        if (uv.value < 4) {
-          uv.classList.add("low");
-      }
-          else if(uv.value < 8) {
-              uv.classList.add("medium");
-          }
-          else {
-              uv.classList.add("high");
-          }
-    
-      };
-      */
 
 
-/*
-
-button.addEventListener('click',function(){
-//function uviColorShift() {
-    if (uvValue < 4) {
-      uv.addClass("low");
-  }
-      else if(uvValue < 8) {
-          uv.addClass("medium");
-      }
-      else {
-          uv.addClass("high");
-      }
-
-  });
-
-  
-*/
 
 
 
