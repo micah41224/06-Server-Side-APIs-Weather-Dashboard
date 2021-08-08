@@ -1,148 +1,214 @@
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+caption {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+body {
+  background-color: cornflowerblue;
 }
 
 ol {
-    list-style: none;
+  list-style: none;
 }
 
 #banner {
-    background-image: linear-gradient(to right,rgb(47, 47, 187), rgb(82, 24, 136));
-    width:100%;
-    height: 70px;
-    text-align: center;
-    color:white;
-    font-size: 44px;
-    vertical-align: middle;
-    line-height: 70px;
+  background-image: linear-gradient(
+    to right,
+    rgb(47, 47, 187),
+    rgb(82, 24, 136)
+  );
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  color: white;
+  font-size: 44px;
+  vertical-align: middle;
+  line-height: 70px;
 }
 
 #searchDiv {
-   /* border-style: solid;
+  /* border-style: solid;
     border-radius: 25px;
     border-width: 5px; */
-    height: 600px;
-    width: 20%;
-
+  height: 600px;
+  width: 20%;
 }
 
 #cityDiv {
-    border-style: solid;
-   /* border-radius: 25px; */
-    border-width: 1px;
-    width:100%;
-    padding:20px;
-    
+  border-style: solid;
+  /* border-radius: 25px; */
+  border-width: 1px;
+  width: 100%;
+  padding: 20px;
 }
 
 #FDFDiv {
-    border-style: solid;
-   /* border-radius: 25px; */
-    border-width: 1px;
-    width:100%;
+  /*border-style: solid;*/
+  /* border-radius: 25px; */
+  /*border-width: 1px;*/
+  width: 100%;
 }
 
 h2 {
-    font-weight: bolder;
-    font-size: 25px;
+  font-weight: bolder;
+  font-size: 25px;
 }
 
 #container {
-    height: 500px;
-    padding-left: 30px;
-    padding-top: 20px;
-    width: 90%;
+  height: 500px;
+  padding-left: 30px;
+  padding-top: 20px;
+  width: 90%;
 }
 
 .float-left {
-    float: left;
-    margin-right: 50px;
+  float: left;
+  margin-right: 50px;
 }
 
 .float-right {
-    float: right;
-
+  float: right;
 }
 
 #rightContainer {
-    display:flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 70%;
 }
 
 #searchDivH2 {
-    padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 #yourCity {
-    width: 100%;
-    height: 50px;
-    
+  width: 100%;
+  height: 50px;
 }
 
 #button {
-    width: 100%;
-    height: 45px;
-    color: white;
-    background-color: rgb(55, 55, 209);
-    margin-top: 20px;
-    border-radius: 12px;
+  width: 100%;
+  height: 45px;
+  color: white;
+  background-color: rgb(55, 55, 209);
+  margin-top: 20px;
+  border-radius: 12px;
 }
 
 #history {
-    margin-top: 20px;
-    border-top: 3px;
-    border-style: solid;
-
+  margin-top: 20px;
+  border-top: 3px;
+  border-style: solid;
 }
 
 .inputValue {
-    width:100%;
-    height: 50px;
-    font-size: 23px;
-    padding-left: 10px;
+  width: 100%;
+  height: 50px;
+  font-size: 23px;
+  padding-left: 10px;
 }
 
-.low{
-    background-color: rgb(23, 211, 64);
+.low {
+  background-color: rgb(23, 211, 64);
 }
 
 .medium {
-    background-color: yellow;
+  background-color: yellow;
 }
 
 .high {
-    background-color: red;
+  background-color: red;
 }
 
 .UV-index {
-    width: 60px;
-    text-align: center;
-    border-radius: 12px;
-    float:right;
+  width: 60px;
+  text-align: center;
+  border-radius: 12px;
+  float: right;
 }
 
-
 .UV-index1 {
-    width:85%;
+  width: 60%;
 }
 
 ol#cityList {
-    padding-top: 15px;
-    width: 340px;
+  border-top: solid black 2px;
+  margin-top: 25px;
+  padding-top: 15px;
+  width: 340px;
 }
 
 ol#cityList li {
-    font-size: 25px;
-    background-color: rgb(177, 172, 172);
-    border-radius: 12px;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  font-size: 25px;
+  background-color: rgb(177, 172, 172);
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.cityName {
+  font-size: 30px;
+}
+
+#miniCards {
+  max-width: 12%;
 }
