@@ -28,7 +28,7 @@ function getWeather(value, callee) {
         pic.setAttribute("alt", data.weather[0].description);
 
         nameSlot.innerHTML =nameValue+" (" + month + "/" + day + "/" + year + ") ";
-        temp.innerHTML = "Temp: "+tempRounded+"°";
+        temp.innerHTML = "Temp: "+tempRounded+"°F";
         humidity.innerHTML = "Humidity: "+humidityValue+"%";
         wind.innerHTML = "Wind Speed: "+windValue+" MPH";
 
@@ -79,7 +79,7 @@ function getWeather(value, callee) {
           forecastWeatherEl.setAttribute("alt", data.list[forecastInd].weather[0].description);
           forecastEls[i].append(forecastWeatherEl);
           var forecastTempEl = document.createElement("p");
-          forecastTempEl.innerHTML = "Temp: " + Math.round((((data.list[forecastInd].main.temp) - 273.15) * 1.8 + 32)) + " &#176F";
+          forecastTempEl.innerHTML = "Temp: " + Math.round((((data.list[forecastInd].main.temp) - 273.15) * 1.8 + 32)) + " °F";
           forecastEls[i].append(forecastTempEl);
           var forecastWindEl = document.createElement("p");
           forecastWindEl.innerHTML = "Wind: " + data.list[forecastInd].wind.speed + "MPH";
