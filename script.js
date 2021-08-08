@@ -71,7 +71,7 @@ function getWeather(value, callee) {
           forecastEls[i].innerHTML = "";
           var forecastInd = i * 8 + 4;
           var forecastDate = new Date(data.list[forecastInd].dt * 1000);
-          var forecastDay = forecastDate.getDate() +1;
+          var forecastDay = forecastDate.getDate() ;
           var forecastMonth = forecastDate.getMonth() +1;
           var forecastYear = forecastDate.getFullYear();
           var forecastDateEl = document.createElement("p");
