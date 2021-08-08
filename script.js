@@ -9,8 +9,6 @@ var uv = document.querySelector('.UV-index');
 var olEl = document.getElementById("cityList");
 
 
-//button.addEventListener('click',function(){
-    //Below function was recently added
 function getWeather(value, callee) {
     fetch('https://api.openweathermap.org/data/2.5/weather?q='+value+'&appid=e441c40d7c8015427300822498b53fc2')
     .then(response => response.json())
@@ -29,7 +27,7 @@ function getWeather(value, callee) {
         pic.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
         pic.setAttribute("alt", data.weather[0].description);
 
-        nameSlot.innerHTML ="City: "+nameValue+" (" + month + "/" + day + "/" + year + ") ";
+        nameSlot.innerHTML =nameValue+" (" + month + "/" + day + "/" + year + ") ";
         temp.innerHTML = "Temp: "+tempRounded+"°";
         humidity.innerHTML = "Humidity: "+humidityValue+"%";
         wind.innerHTML = "Wind Speed: "+windValue+" MPH";
@@ -37,48 +35,72 @@ function getWeather(value, callee) {
         let lat = data.coord.lat;
         let lon = data.coord.lon;
 
-       // console.log(lat);
-        //console.log(lon);
-
         fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,daily&appid=e441c40d7c8015427300822498b53fc2")
         .then(response => response.json())
         .then(data => {
         
         var uvValue = data.current.uvi;
         uv.innerHTML = uvValue;
-        //console.log(data);
 
         function uviColorShift(){
-            //function uviColorShift() {
                 if (data.current.uvi < 4) {
-                  uv.classList.add("low");
+                  uv.setAttribute("class","low UV-index");
               }
                   else if(data.current.uvi < 8) {
-                      uv.classList.add("medium");
+                      uv.setAttribute("class", "medium UV-index");
                   }
                   else {
-                      uv.classList.add("high");
+                      uv.setAttribute("class", "high UV-index");
                   }
             
               };
 
        uviColorShift();
 
-       
+    function getWeather5Day() {
+    fetch('https://api.openweathermap.org/data/2.5/forecast?q='+value+'&appid=e441c40d7c8015427300822498b53fc2')
+    .then(response => response.json())
+    .then(data => {
+      var forecastEls = document.querySelectorAll(".forecast");
+      for (i = 0; i < forecastEls.length; i++) {
+          forecastEls[i].innerHTML = "";
+          var forecastInd = i * 8 + 4;
+          var forecastDate = new Date(data.list[forecastInd].dt * 1000);
+          var forecastDay = forecastDate.getDate() +1;
+          var forecastMonth = forecastDate.getMonth() +1;
+          var forecastYear = forecastDate.getFullYear();
+          var forecastDateEl = document.createElement("p");
+          forecastDateEl.setAttribute("class", "mt-3 mb-0 forecast-date");
+          forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" +forecastYear;
+          forecastEls[i].append(forecastDateEl);
+
+          var forecastWeatherEl = document.createElement("img");
+          forecastWeatherEl.setAttribute("src", "https://openweathermap.org/img/wn/" + data.list[forecastInd].weather[0].icon + "@2x.png");
+          forecastWeatherEl.setAttribute("alt", data.list[forecastInd].weather[0].description);
+          forecastEls[i].append(forecastWeatherEl);
+          var forecastTempEl = document.createElement("p");
+          forecastTempEl.innerHTML = "Temp: " + Math.round((((data.list[forecastInd].main.temp) - 273.15) * 1.8 + 32)) + " &#176F";
+          forecastEls[i].append(forecastTempEl);
+          var forecastWindEl = document.createElement("p");
+          forecastWindEl.innerHTML = "Wind: " + data.list[forecastInd].wind.speed + "MPH";
+          forecastEls[i].append(forecastWindEl);
+          var forecastHumidityEl = document.createElement("p");
+          forecastHumidityEl.innerHTML = "Humidity: " + data.list[forecastInd].main.humidity + "%";
+          forecastEls[i].append(forecastHumidityEl);
+      }  
+    })
+}
+      getWeather5Day();
+
+       /* BREAK AT BOTTOM OF 5 DAY FORECAST */
+
+
 if (callee == "input") {
 
 
   var inputHistory = document.querySelector(".inputValue").value;
 
-/*
-    var cityLog = JSON.parse(window.localStorage.getItem("cityLog")) || [];
-    var newEntry = {
-      inputHistory: inputHistory
-    };
-  
 
-    cityLog.push(newEntry);
-*/
 var newEntry = {
     inputHistory: inputHistory
   };
@@ -97,32 +119,10 @@ var newEntry = {
 
     getFromStorage();
 }
-    //getFromStorage();
-    //console.log(cityLog);
-/*
-    cityLog.forEach(function(inputHistory) {
-        var liTag = document.createElement("li");
-        liTag.setAttribute("type", "text");
-        liTag.addEventListener("click", function () {
-            getWeather(inputHistory.inputHistory);
-        })
-        liTag.textContent = inputHistory.inputHistory;
-        console.log(inputHistory.inputHistory);
-       
-    
-        var olEl = document.getElementById("cityList");
-        olEl.appendChild(liTag);
-      });
-*/
+
         })
     })
 }
-
-
-
-
-
-
 
 function getFromStorage () {
     
@@ -147,14 +147,7 @@ function getFromStorage () {
         olEl.appendChild(liTag);
       });
     }
-    /*
-      var newEntry = {
-      inputHistory: inputHistory
-    };
-  
 
-    cityLog.push(newEntry);
-*/
 }
 
 function setEventListeners () {
@@ -174,4 +167,7 @@ getFromStorage();
 init ();
 
 //    const APIKey = "e441c40d7c8015427300822498b53fc2";
+
+
+
 

@@ -61,6 +61,10 @@ caption {
   vertical-align: baseline;
 }
 
+body {
+  background-color: cornflowerblue;
+}
+
 ol {
   list-style: none;
 }
@@ -97,9 +101,9 @@ ol {
 }
 
 #FDFDiv {
-  border-style: solid;
+  /*border-style: solid;*/
   /* border-radius: 25px; */
-  border-width: 1px;
+  /*border-width: 1px;*/
   width: 100%;
 }
 
@@ -182,10 +186,12 @@ h2 {
 }
 
 .UV-index1 {
-  width: 85%;
+  width: 60%;
 }
 
 ol#cityList {
+  border-top: solid black 2px;
+  margin-top: 25px;
   padding-top: 15px;
   width: 340px;
 }
@@ -201,4 +207,8 @@ ol#cityList li {
 
 .cityName {
   font-size: 30px;
+}
+
+#miniCards {
+  max-width: 12%;
 }
