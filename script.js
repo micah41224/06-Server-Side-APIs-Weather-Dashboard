@@ -1,3 +1,4 @@
+// Listed global variables
 var button = document.querySelector('#button');
 var inputValue = document.querySelector('.inputValue');
 var nameSlot = document.querySelector('.cityName');
@@ -8,8 +9,9 @@ var pic = document.querySelector('#placeholder-pic')
 var uv = document.querySelector('.UV-index');
 var olEl = document.getElementById("cityList");
 
-
+//Primary function used to call both weather forecasts, format them into the HTML and store search to local storage
 function getWeather(value, callee) {
+    //Fetch call used to pull current weather data from openweathermap API
     fetch('https://api.openweathermap.org/data/2.5/weather?q='+value+'&appid=e441c40d7c8015427300822498b53fc2')
     .then(response => response.json())
     .then(data => {
@@ -34,7 +36,7 @@ function getWeather(value, callee) {
 
         let lat = data.coord.lat;
         let lon = data.coord.lon;
-
+        //Fetch call used to pull current UVI data from openweather API
         fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,daily&appid=e441c40d7c8015427300822498b53fc2")
         .then(response => response.json())
         .then(data => {
@@ -42,6 +44,8 @@ function getWeather(value, callee) {
         var uvValue = data.current.uvi;
         uv.innerHTML = uvValue;
 
+        /*Function used to change the color of the <div> displaying the UVI data based
+         on severity of current conditions (green/yellow/red) */
         function uviColorShift(){
                 if (data.current.uvi < 4) {
                   uv.setAttribute("class","low UV-index");
@@ -52,12 +56,13 @@ function getWeather(value, callee) {
                   else {
                       uv.setAttribute("class", "high UV-index");
                   }
-            
               };
-
+       // Calls UVI <div> color changing function
        uviColorShift();
 
+    // Function used to call data for 5 day forecast and format the results into the HTML
     function getWeather5Day() {
+    // Fetch call to get the 5 day forecast data from openweathermap.org API
     fetch('https://api.openweathermap.org/data/2.5/forecast?q='+value+'&appid=e441c40d7c8015427300822498b53fc2')
     .then(response => response.json())
     .then(data => {
@@ -92,9 +97,6 @@ function getWeather(value, callee) {
 }
       getWeather5Day();
 
-       /* BREAK AT BOTTOM OF 5 DAY FORECAST */
-
-
 if (callee == "input") {
 
 
@@ -105,13 +107,15 @@ var newEntry = {
     inputHistory: inputHistory
   };
 
+  // Pulls search history from localstorage
   var cityLogStorage = window.localStorage.getItem("cityLog") || [];
   if (window.localStorage.getItem("cityLog") === null) {
       var cityLog =[];
   } else {
       var cityLog = JSON.parse(cityLogStorage)
   }
-     
+
+  // Pushes newly searched city to localstorage   
   cityLog.push(newEntry);
 
     window.localStorage.setItem("cityLog", JSON.stringify(cityLog));
@@ -124,6 +128,7 @@ var newEntry = {
     })
 }
 
+// Function to pull search history from localstorage
 function getFromStorage () {
     
     var cityLogStorage = window.localStorage.getItem("cityLog")|| [];
@@ -132,7 +137,8 @@ function getFromStorage () {
       var cityLog=[];
   } else {
       var cityLog = JSON.parse(cityLogStorage)
-   
+
+    // Creates <li> to display each city being pulled from local storage
     cityLog.forEach(function(inputHistory) {
         var liTag = document.createElement("li");
         liTag.setAttribute("type", "text");
@@ -147,11 +153,10 @@ function getFromStorage () {
         olEl.appendChild(liTag);
       });
     }
-
 }
 
+// Sets up event listener to call getWeather function and pass in the city being searched
 function setEventListeners () {
-//Recently changed:
 button.addEventListener('click',function(){
     var searchTerm = inputValue.value;
         getWeather(searchTerm, "input");
@@ -159,6 +164,7 @@ button.addEventListener('click',function(){
  })
 }
 
+// Initial page setup function
 function init () {
 setEventListeners();
 getFromStorage();

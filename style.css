@@ -85,25 +85,18 @@ ol {
 }
 
 #searchDiv {
-  /* border-style: solid;
-    border-radius: 25px;
-    border-width: 5px; */
   height: 600px;
   width: 20%;
 }
 
 #cityDiv {
   border-style: solid;
-  /* border-radius: 25px; */
   border-width: 1px;
   width: 100%;
   padding: 20px;
 }
 
 #FDFDiv {
-  /*border-style: solid;*/
-  /* border-radius: 25px; */
-  /*border-width: 1px;*/
   width: 100%;
 }
 
@@ -186,7 +179,7 @@ h2 {
 }
 
 .UV-index1 {
-  width: 60%;
+  width: 63%;
 }
 
 ol#cityList {
