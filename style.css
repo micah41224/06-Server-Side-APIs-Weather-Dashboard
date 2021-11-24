@@ -205,3 +205,26 @@ ol#cityList li {
 #miniCards {
   max-width: 12%;
 }
+
+@media (max-width: 700px) {
+  /* .flex-item {
+    flex: 100%;
+  } */
+  #banner {
+    font-size: 27px;
+  }
+  .float-left {
+    float: none;
+  }
+  #searchDiv {
+    height: auto;
+    padding-bottom: 15px;
+    width: 100%;
+  }
+  #rightContainer {
+    /* align-content: center; */
+    margin: 0 auto;
+  }
+}
+
+/* .float { float:left; padding-right:10px; } @media only screen and (max-width: 900px) { .float { float:none; } } */
