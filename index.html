@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
     <title>Weather Dashboard</title>
@@ -13,7 +15,9 @@
     <div>
         <h1 id=banner>Weather Dashboard</h1>
     </div>
-    <div id=container>  
+    <!-- <div class=container>  
+        <div class=row> -->
+        <!-- <div class=col-3>
     <div id=searchDiv class=float-left>
         <h2 id=searchDivH2>Search for a City:</h2>
         <div class="input">
@@ -26,6 +30,10 @@
             </ol>
         </div>
     </div>
+    </div> -->
+    
+    <!-- <div class=col-9>
+
 <div id=rightContainer>
     <div id=cityDiv class="row">
         <ol>
@@ -52,7 +60,83 @@
         </div>
     </div>
   </div>
-</div>  
+</div>
+</div> -->
+
+<!-- TEST -->
+<div class="container mainContainer" >
+    <div class="row">
+        <div class="col-lg-3">
+            <div>
+                    <div>
+                        <h2>Search for a City:</h2>
+                        <div class="input">
+                            <input type="text" class="inputValue" placeholder="Type city name here">
+                            <button type="button" id="button">Search</button>
+                        </div>
+                        <div>
+                            <ol id="cityList" style="text-transform: capitalize;">
+                    
+                            </ol>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div>
+                            <div class="row">
+                                <ol>
+                                    <li class="cityName">City</li>
+                                    <img id="placeholder-pic" alt="">
+                                    <li class="temp">Temp: </li>
+                                    <li class="humidity">Humidity: </li>
+                                    <li class="wind">Wind-speed:</li>
+                                    <li class="UV-index1">UV-index:
+                                        <div class="UV-index"></div>
+                                    </li>
+                                </ol>
+                                <p id="cityDateDisplay"></p>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="mini-box">
+                        <h2>5 Day Forecast:</h2>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="mini-box">
+                            <div  class="row">
+                                <div class="col-sm-2 forecast bg-primary text-white m-2 pb-4 rounded text-center">Daily1</div>
+                                <div class="col-sm-2 forecast bg-primary text-white m-2 pb-4 rounded text-center">Daily2</div>
+                                <div class="col-sm-2 forecast bg-primary text-white m-2 pb-4 rounded text-center">Daily3</div>
+                                <div class="col-sm-2 forecast bg-primary text-white m-2 pb-4 rounded text-center">Daily4</div>
+                                <div class="col-sm-2 forecast bg-primary text-white m-2 pb-4 rounded text-center">Daily5</div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- </div>   -->
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            One of three columns
+        </div>
+        <div class="col-sm-8">
+            One of three columns
+        </div>
+        <div class="col-sm-2">
+            One of three columns
+        </div>
+    </div>
+</div> -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./script.js"></script>
 </body>

@@ -1,4 +1,4 @@
-html,
+/* html,
 body,
 div,
 span,
@@ -59,7 +59,7 @@ caption {
   outline: 0;
   font-size: 100%;
   vertical-align: baseline;
-}
+} */
 
 body {
   background-color: cornflowerblue;
@@ -85,8 +85,8 @@ ol {
 }
 
 #searchDiv {
-  height: 600px;
-  width: 20%;
+  /* height: 600px; */
+  /* width: 20%; */
 }
 
 #cityDiv {
@@ -105,15 +105,15 @@ h2 {
   font-size: 25px;
 }
 
-#container {
+/* #container {
   height: 500px;
   padding-left: 30px;
   padding-top: 20px;
   width: 90%;
-}
+} */
 
 .float-left {
-  float: left;
+  /* float: left; */
   margin-right: 50px;
 }
 
@@ -186,7 +186,8 @@ ol#cityList {
   border-top: solid black 2px;
   margin-top: 25px;
   padding-top: 15px;
-  width: 340px;
+  padding-left: 0;
+  /* width: 340px; */
 }
 
 ol#cityList li {
